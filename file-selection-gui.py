@@ -14,6 +14,14 @@ def open_file():
     f = open(filepath,'r')
     message = f.read()
     print(message)
+    with open(filepath) as a:
+        lines = a.readlines()
+
+    print(lines)
+
+    new_list = [s.replace("\n", "") for s in lines]
+
+    print(new_list)
     f.close()
 
 window = tk.Tk()
