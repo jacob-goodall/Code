@@ -16,12 +16,10 @@ def open_file():
     print(message)
     with open(filepath) as a:
         lines = a.readlines()
-
-    print(lines)
-
     new_list = [s.replace("\n", "") for s in lines]
-
     print(new_list)
+    sorted_new_list = sorted(new_list)
+    print(sorted_new_list)
     f.close()
 
 window = tk.Tk()
