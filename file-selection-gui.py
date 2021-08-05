@@ -21,7 +21,21 @@ def open_file():
     print(new_list)
     sorted_new_list = sorted(new_list)
     print(sorted_new_list)
+    
     f.close()
+    file = open(filepath,"r")
+    Counter = 0
+    
+    # Reading from file
+    Content = file.read()
+    CoList = Content.split("\n")
+    for i in CoList:
+        if i:
+            Counter += 1
+
+    print("Number of People in List:",Counter)
+    file.close()
+
 
 window = tk.Tk()
 window.title("File Selector")
