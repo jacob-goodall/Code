@@ -1,38 +1,32 @@
 import turtle
-bob = turtle.Turtle()
-turtle.tracer(0)
-H = 2
-W = 5
-S = 10
 
-def square(side):
-    for i in range(4):
-        bob.forward(side)
-        bob.left(90)
 
-def row(n, side):
-    for i in range(n):
-        square(side)
-        bob.forward(side)
-    bob.penup()
-    bob.left(180)
-    bob.forward(n * side)
-    bob.left(180)
-    bob.pendown()
+WIDTH, HEIGHT = 450, 450
 
-def row_of_rows(m, n, side):
-    for i in range(m):
-        row(n, side)
-        bob.penup()
-        bob.left(90)
-        bob.forward(side)
-        bob.right(90)
-        bob.pendown()
-    bob.penup()
-    bob.right(90)
-    bob.forward(m * side)
-    bob.left(90)
-    bob.pendown()
-    turtle.exitonclick()
+screen = turtle.Screen()
+screen.setup(WIDTH, HEIGHT)  # fudge factors due to window borders & title bar
+screen.setworldcoordinates(0, 0, WIDTH, HEIGHT)
 
-row_of_rows(H,W,S)
+
+flag = turtle.Turtle()
+
+
+start=100
+flag.penup()
+flag.goto(0,50)
+for i in range(3):
+    for i in range (8):
+        flag.penup()
+        flag.forward(60)
+        flag.dot()
+        flag.penup()
+
+    flag.goto(0, start)
+    start = start + 50
+
+
+
+#flag.goto(0,50)
+
+turtle.done()
+
