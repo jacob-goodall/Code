@@ -1,4 +1,4 @@
-import turtle
+import turtle, time
 
 
 
@@ -57,7 +57,7 @@ window.mainloop()
 
 
 
-WIDTH, HEIGHT = 1450, 1450
+WIDTH, HEIGHT = 800, 800
 
 screen = turtle.Screen()
 screen.setup(WIDTH, HEIGHT)  # fudge factors due to window borders & title bar
@@ -71,7 +71,7 @@ flag.goto(0,50)
 for i in range(3):
     for i in range (8):
         flag.penup()
-        flag.forward(60)
+        flag.forward(150)
         flag.dot()
         flag.penup()
         
@@ -90,17 +90,17 @@ l = [ValueError, TypeError]
 for  x in range(3):
     for x in range(8):
       name.penup()
-      name.forward(60)
+      name.forward(150)
       name.write(sorted_new_list[order])
       order += 1 
       if order >= 17:
         break
+        time.sleep(100)
 
         
     name.goto(0, start1)
     start1 = start1 + 50     
 
 turtle.done()
-turtle.exitonclick()
 file.close()
 
