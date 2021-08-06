@@ -21,7 +21,20 @@ for i in range(3):
     flag.goto(0, start)
     start = start + 50
 
-#flag.goto(0,50)
+start1 = 100
+name = turtle.Turtle()
+name.penup()
+name.goto(0,50)
+for  x in range(3):
+    for x in range(8):
+        name.penup()
+        name.forward(60)
+        name.write("Test")
+        
+    name.goto(0, start1)
+    start1 = start1 + 50
+        
 
 turtle.done()
+
 
