@@ -1,8 +1,9 @@
-with open('Level3crosses.txt') as a:
-  lines = a.readlines()
-
-print(lines)
-
-new_list = [s.replace("\n", "") for s in lines]
-
-print(new_list)
+file = open('Level3crosses.txt',"r")
+Counter = 0
+# Reading from file
+Content = file.read()
+CoList = Content.split("\n")
+for i in CoList:
+    if i:
+        Counter += 1
+print(counter)

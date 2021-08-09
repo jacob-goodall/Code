@@ -1,4 +1,4 @@
-file = open("l.txt", "r")
+file = open("Level3crosses.txt", "r")
 
 line_count = 0
 
