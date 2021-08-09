@@ -2,7 +2,11 @@ import turtle, time
 import tkinter as tk
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 
-global sorted_new_list
+global sorted_new_list, x, y, filepath, window, x1
+window = tk.Tk()
+root = tk.Tk()
+x, y = 1
+x1 = 0
 sorted_new_list = []
 errors = [ValueError, TypeError]
 
@@ -10,7 +14,6 @@ filepath = ""
 
 
 def open_file():
-    global filepath, sorted_new_list, window
     filepath = askopenfilename(filetypes=[("Text Files", "*.txt"), ("CSV", "*.csv*")])
     if not filepath:
         return
@@ -39,10 +42,6 @@ def open_file():
 
 
 def tkamount():
-    global root, x1
-    x1 = 0
-    root = tk.Tk()
-
     canvas1 = tk.Canvas(root, width=400, height=300)
     canvas1.pack()
 
@@ -71,8 +70,6 @@ def tkamount():
 
 
 def tkfile():
-    global window
-    window = tk.Tk()
     window.title("File Selector")
     txt_edit = tk.Text(window)
     fr_buttons = tk.Frame(window, relief=tk.RAISED, bd=2)
@@ -89,7 +86,7 @@ def turtles():
     WIDTH, HEIGHT = 800, 800
 
     screen = turtle.Screen()
-    screen.setup(WIDTH, HEIGHT)  # fudge factors due to window borders & title bar
+    screen.setup(WIDTH, HEIGHT)
     screen.setworldcoordinates(0, 0, WIDTH, HEIGHT)
     turtle.tracer(0)
     flag = turtle.Turtle()
@@ -128,9 +125,9 @@ def turtles():
 
     turtle.done()
 
+
 def sizeofarea():
     def show_entry_fields():
-        global x, y
         x = e1.get()
         y = e2.get()
 
@@ -144,10 +141,15 @@ def sizeofarea():
     e1.grid(row=0, column=1)
     e2.grid(row=1, column=1)
 
-    tk.Button(master, text='Quit', command=master.quit).grid(row=3, column=0, sticky=tk.W, pady=4)
-    tk.Button(master, text='Show', command=show_entry_fields).grid(row=3, column=1, sticky=tk.W, pady=4)
+    tk.Button(master, text="Quit", command=master.quit).grid(
+        row=3, column=0, sticky=tk.W, pady=4
+    )
+    tk.Button(master, text="Show", command=show_entry_fields).grid(
+        row=3, column=1, sticky=tk.W, pady=4
+    )
 
     tk.mainloop()
     tkfile()
+
 
 sizeofarea()
