@@ -5,7 +5,8 @@ from tkinter.filedialog import askopenfilename, asksaveasfilename
 filepath = ""
 def open_file():
     global filepath, sorted_new_list, window
-    x1 = entry1.get()
+    
+    x2 = entry2.get()
     filepath = askopenfilename(
         filetypes=[("Text Files", "*.txt"), ("CSV", "*.csv*")]
     )
@@ -31,7 +32,6 @@ def open_file():
             Counter += 1
     print(Counter)
 
-    
     file.close()
 
     print("Number of People in List:",Counter)
@@ -46,8 +46,10 @@ def tkamount():
     canvas1 = tk.Canvas(root, width = 400, height = 300)
     canvas1.pack()
 
-    entry1 = tk.Entry (root) 
+    entry1 = tk.Entry(root) 
+  
     canvas1.create_window(200, 140, window=entry1)
+    
 
     def getamountpeople():  
         x1 = entry1.get()
@@ -69,8 +71,9 @@ def tkamount():
     tkfile()
         
 def tkfile():
-    global window
+    global window, entry2
     window = tk.Tk()
+    entry2 = tk.Entry(window)
     window.title("File Selector")
     txt_edit = tk.Text(window)
     fr_buttons = tk.Frame(window, relief=tk.RAISED, bd=2)
@@ -82,49 +85,50 @@ def tkfile():
     turtles()
 
 def turtles():
+    global sorted_new_list
 
-  WIDTH, HEIGHT = 800, 800
+    WIDTH, HEIGHT = 800, 800
 
-  screen = turtle.Screen()
-  screen.setup(WIDTH, HEIGHT)  # fudge factors due to window borders & title bar
-  screen.setworldcoordinates(0, 0, WIDTH, HEIGHT)
-  turtle.tracer(0)
-  flag = turtle.Turtle()
+    screen = turtle.Screen()
+    screen.setup(WIDTH, HEIGHT)  # fudge factors due to window borders & title bar
+    screen.setworldcoordinates(0, 0, WIDTH, HEIGHT)
+    turtle.tracer(0)
+    flag = turtle.Turtle()
 
-  start = 100
-  flag.penup()
-  flag.goto(0,50)
-  for i in range(3):
-      for i in range (8):
-          flag.penup()
-          flag.forward(150)
-          flag.dot()
-          flag.penup()
-      
-      flag.goto(0, start)
-      start = start + 50
+    start = 100
+    flag.penup()
+    flag.goto(0,50)
+    for i in range(3):
+        for i in range (8):
+            flag.penup()
+            flag.forward(150)
+            flag.dot()
+            flag.penup()
+        
+        flag.goto(0, start)
+        start = start + 50
 
-  start1 = 100
-  order = 0 
-  name = turtle.Turtle()
-  name.penup()
-  name.goto(0,50)
+    start1 = 100
+    order = 0 
+    name = turtle.Turtle()
+    name.penup()
+    name.goto(0,50)
 
-  l = [ValueError, TypeError]
+    l = [ValueError, TypeError]
 
-  for  x in range(3):
-      for x in range(8):
-        name.penup()
-        name.forward(150)
-        name.write(sorted_new_list[order])
-        order += 1 
-        if order >= x1:
-          break
-          time.sleep(100)
-          
-      name.goto(0, start1)
-      start1 = start1 + 50     
+    for  x in range(3):
+        for x in range(8):
+            name.penup()
+            name.forward(150)
+            name.write(sorted_new_list[order])
+            order += 1 
+            if order >= x1:
+                break
+                time.sleep(100)
+            
+        name.goto(0, start1)
+        start1 = start1 + 50     
 
-  turtle.done()
+    turtle.done()
 
 tkamount()
