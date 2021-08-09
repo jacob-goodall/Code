@@ -5,22 +5,18 @@ from tkinter.filedialog import askopenfilename, asksaveasfilename
 filepath = ""
 def open_file():
     global filepath, sorted_new_list, window
-    
-    x2 = entry2.get()
     filepath = askopenfilename(
         filetypes=[("Text Files", "*.txt"), ("CSV", "*.csv*")]
     )
     if not filepath:
         return
-    print(filepath)
+    
     window.title(f"File Selector - {filepath}")
 
     with open(filepath) as a:
         lines = a.readlines()
     new_list = [s.replace("\n", "") for s in lines]
-    print(new_list)
     sorted_new_list = sorted(new_list)
-    print(sorted_new_list)
     
     file = open(filepath,"r")
     Counter = 0
@@ -31,12 +27,13 @@ def open_file():
         if i:
             Counter += 1
     print(Counter)
+    print(filepath)
 
     file.close()
 
     print("Number of People in List:",Counter)
-    for elem in sorted_new_list:
-          print(elem)
+    #for elem in sorted_new_list:
+      #    print(elem)
 
 def tkamount():
     global root, x1
@@ -71,9 +68,8 @@ def tkamount():
     tkfile()
         
 def tkfile():
-    global window, entry2
+    global window, 
     window = tk.Tk()
-    entry2 = tk.Entry(window)
     window.title("File Selector")
     txt_edit = tk.Text(window)
     fr_buttons = tk.Frame(window, relief=tk.RAISED, bd=2)
