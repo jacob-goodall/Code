@@ -51,11 +51,11 @@ def second(sorted_new_list):
       if fieldValues is None:
           break
   print(fieldValues)
-  turtles(sorted_new_list)
+  turtles(sorted_new_list, fieldValues[0], fieldValues[1], fieldValues[2])
 
-def turtles(sorted_new_list):
+def turtles(sorted_new_list, width, height):
 
-  WIDTH, HEIGHT = 800, 800
+  WIDTH, HEIGHT = width, height
   screen = turtle.Turtle()
   screen = turtle.Screen()
   screen.setup(WIDTH, HEIGHT)
