@@ -9,7 +9,7 @@ screen = turtle.Turtle()
 screen = turtle.Screen()
 screen.setup(WIDTH, HEIGHT)
 screen.setworldcoordinates(0, 0, WIDTH, HEIGHT)
-#turtle.tracer(0)
+turtle.tracer(0)
 flag = turtle.Turtle()
 
 start = 100
@@ -18,7 +18,7 @@ flag.goto(0, 50)
 for i in range(3):
     for i in range(8):
         flag.penup()
-        flag.forward(150)
+        flag.forward(150)  
         flag.dot()
         flag.penup()
 
