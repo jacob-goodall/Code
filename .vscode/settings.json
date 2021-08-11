@@ -3,5 +3,6 @@
     "asksaveasfilename",
     "sizeofarea",
     "tkfile"
-  ]
+  ],
+  "python.formatting.provider": "black"
 }

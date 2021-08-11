@@ -2,10 +2,10 @@ import turtle, time
 import tkinter as tk
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 
-global sorted_new_list, x, y, filepath, window, x1
-window = tk.Tk()
-root = tk.Tk()
-x, y = 1
+global sorted_new_list, x, y, filepath, x1
+
+y = 1
+x = 1
 x1 = 0
 sorted_new_list = []
 errors = [ValueError, TypeError]
@@ -18,7 +18,7 @@ def open_file():
     if not filepath:
         return
 
-    window.title(f"File Selector - {filepath}")
+    # window.title(f"File Selector - {filepath}")
 
     with open(filepath) as a:
         lines = a.readlines()
@@ -42,6 +42,7 @@ def open_file():
 
 
 def tkamount():
+    root = tk.Tk()
     canvas1 = tk.Canvas(root, width=400, height=300)
     canvas1.pack()
 
@@ -70,6 +71,7 @@ def tkamount():
 
 
 def tkfile():
+    window = tk.Tk()
     window.title("File Selector")
     txt_edit = tk.Text(window)
     fr_buttons = tk.Frame(window, relief=tk.RAISED, bd=2)
@@ -105,7 +107,7 @@ def turtles():
         start = start + 50
 
     start1 = 100
-    order = 0
+    order = 17
     name = turtle.Turtle()
     name.penup()
     name.goto(0, 50)
@@ -113,10 +115,12 @@ def turtles():
     for x in range(3):
         for x in range(8):
             name.penup()
+            name.right(90)
             name.forward(150)
             name.write(sorted_new_list[order])
             order += 1
-            if order >= x1:
+            print(order)
+            if order >= 17:
                 break
                 time.sleep(100)
 
@@ -130,6 +134,7 @@ def sizeofarea():
     def show_entry_fields():
         x = e1.get()
         y = e2.get()
+        tkfile()
 
     master = tk.Tk()
     tk.Label(master, text="Width").grid(row=0)
@@ -150,6 +155,5 @@ def sizeofarea():
 
     tk.mainloop()
     tkfile()
-
 
 sizeofarea()
