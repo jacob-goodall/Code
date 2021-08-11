@@ -53,14 +53,15 @@ def second(sorted_new_list):
   print(fieldValues)
   turtles(sorted_new_list, fieldValues[0], fieldValues[1], fieldValues[2])
 
-def turtles(sorted_new_list, width, height):
-
-  WIDTH, HEIGHT = width, height
+def turtles(sorted_new_list, width, height, amount_of_people):
+  width = int(width)
+  height = int(height)
+  WIDTH, HEIGHT = 500, 500
   screen = turtle.Turtle()
   screen = turtle.Screen()
   screen.setup(WIDTH, HEIGHT)
   screen.setworldcoordinates(0, 0, WIDTH, HEIGHT)
-  #turtle.tracer(0)
+  turtle.tracer(0)
   flag = turtle.Turtle()
 
   start = 100
@@ -88,7 +89,6 @@ def turtles(sorted_new_list, width, height):
           name.forward(150)
           name.write(sorted_new_list[order])
           order += 1
-          print("Order:", order)
           if order >= 17:
               break
               time.sleep(100)
