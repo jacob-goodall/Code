@@ -29,6 +29,7 @@ def first():
     print("Number of People in List:",Counter)
     print(sorted_new_list)
     second(sorted_new_list)
+  opening()
 
 def second(sorted_new_list):
   msg = "Enter Info about task"
@@ -78,24 +79,23 @@ def turtles():
 
   start1 = 100
   order = 0
-  global sorted_new_list
   name = turtle.Turtle()
   name.penup()
   name.goto(0, 50)
 
   for x in range(3):
       for x in range(8):
-          name.penup()
-          name.forward(150)
-          print(x)
-          x =+ 1 
-          print(sorted_new_list)
-          name.write(sorted_new_list)
-          order += 1
-          print("Order:", order)
-          if order >= 17:
-              break
-              time.sleep(100)
+        name.penup()
+        name.forward(150)
+        print(x)
+        x =+ 1 
+        print(sorted_new_list)
+        name.write(sorted_new_list)
+        order += 1
+        print("Order:", order)
+        if order >= 17:
+            break
+            time.sleep(100)
 
       name.goto(0, start1)
       start1 = start1 + 50
