@@ -6,6 +6,7 @@ title = "Cross Plotter"
 fieldNames = ["Width Of Area", "Length of Area", "Amount of people to plot"]
 fieldValues = multenterbox(msg, title, fieldNames)
 if fieldValues is None:
+    #need to make it restart
     sys.exit(0)
 # make sure that none of the fields were left blank
 while 1:
@@ -18,4 +19,4 @@ while 1:
     fieldValues = multenterbox(errmsg, title, fieldNames, fieldValues)
     if fieldValues is None:
         break
-print("Reply was:{}".format(fieldValues))
+print(fieldValues)
