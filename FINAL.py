@@ -51,9 +51,9 @@ def second(sorted_new_list):
       if fieldValues is None:
           break
   print(fieldValues)
-  turtles()
+  turtles(sorted_new_list)
 
-def turtles():
+def turtles(sorted_new_list):
   global x1
 
   WIDTH, HEIGHT = 800, 800
@@ -84,18 +84,15 @@ def turtles():
   name.goto(0, 50)
 
   for x in range(3):
-    for x in range(8):
-      name.penup()
-      name.forward(150)
-      print(x)
-      x =+ 1 
-      print(sorted_new_list)
-      name.write(sorted_new_list)
-      order += 1
-      print("Order:", order)
-      if order >= 17:
-          break
-          time.sleep(100)
+      for x in range(8):
+          name.penup()
+          name.forward(150)
+          name.write(sorted_new_list[order])
+          order += 1
+          print("Order:", order)
+          if order >= 17:
+              break
+              time.sleep(100)
 
       name.goto(0, start1)
       start1 = start1 + 50
