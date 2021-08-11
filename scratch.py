@@ -1,5 +1,8 @@
-from easygui import *
-import sys
+def first():
+    lists = [1, 2, 3, 4]
+    second(lists[2])
 
-x  = fileopenbox(msg="open file", title="Select File", multiple=False)
-print(x)
+def second(testing):
+    print(testing)
+
+first()

@@ -54,7 +54,6 @@ def second(sorted_new_list):
   turtles(sorted_new_list)
 
 def turtles(sorted_new_list):
-  global x1
 
   WIDTH, HEIGHT = 800, 800
   screen = turtle.Turtle()
