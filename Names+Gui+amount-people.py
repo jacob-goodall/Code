@@ -86,11 +86,11 @@ def turtles():
     global x1
 
     WIDTH, HEIGHT = 800, 800
-
+    screen = turtle.Turtle()
     screen = turtle.Screen()
     screen.setup(WIDTH, HEIGHT)
     screen.setworldcoordinates(0, 0, WIDTH, HEIGHT)
-    turtle.tracer(0)
+    #turtle.tracer(0)
     flag = turtle.Turtle()
 
     start = 100
@@ -107,7 +107,7 @@ def turtles():
         start = start + 50
 
     start1 = 100
-    order = 17
+    order = 0
     name = turtle.Turtle()
     name.penup()
     name.goto(0, 50)
@@ -115,11 +115,12 @@ def turtles():
     for x in range(3):
         for x in range(8):
             name.penup()
-            name.right(90)
             name.forward(150)
+            print(x)
+            x =+ 1 
             name.write(sorted_new_list[order])
             order += 1
-            print(order)
+            print("Order:", order)
             if order >= 17:
                 break
                 time.sleep(100)
