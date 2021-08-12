@@ -28,10 +28,10 @@ def first():
 
     print("Number of People in List:",Counter)
     print(sorted_new_list)
-    second(sorted_new_list)
+    second(sorted_new_list, Counter)
   opening()
 
-def second(sorted_new_list):
+def second(sorted_new_list, Counter):
   msg = "Enter Info about task"
   title = "Cross Plotter"
   fieldNames = ["Width Of Area", "Length of Area", "Amount of people to plot"]
@@ -51,22 +51,23 @@ def second(sorted_new_list):
       if fieldValues is None:
           break
   print(fieldValues)
-  turtles(sorted_new_list, fieldValues[0], fieldValues[1], fieldValues[2])
+  turtles(sorted_new_list, fieldValues[0], fieldValues[1], fieldValues[2], Counter)
 
-def turtles(sorted_new_list, width, height, amount_of_people):
+def turtles(sorted_new_list, width, height, amount_of_people, Counter):
   width = int(width)
   height = int(height)
-  WIDTH, HEIGHT = 500, 500
+  WIDTH, HEIGHT = 1400, 520
   screen = turtle.Turtle()
   screen = turtle.Screen()
   screen.setup(WIDTH, HEIGHT)
   screen.setworldcoordinates(0, 0, WIDTH, HEIGHT)
-  turtle.tracer(0)
+  #turtle.tracer(0)
   flag = turtle.Turtle()
 
   start = 100
   flag.penup()
   flag.goto(0, 50)
+  flag.backward(150)
   for i in range(3):
       for i in range(8):
           flag.penup()
@@ -74,7 +75,7 @@ def turtles(sorted_new_list, width, height, amount_of_people):
           flag.dot()
           flag.penup()
 
-      flag.goto(0, start)
+      flag.goto(-150, start)
       start = start + 50
 
   start1 = 100
@@ -82,6 +83,7 @@ def turtles(sorted_new_list, width, height, amount_of_people):
   name = turtle.Turtle()
   name.penup()
   name.goto(0, 50)
+  name.backward(150)
 
   for x in range(3):
       for x in range(8):
@@ -89,12 +91,16 @@ def turtles(sorted_new_list, width, height, amount_of_people):
           name.forward(150)
           name.write(sorted_new_list[order])
           order += 1
-          if order >= 17:
+          if order >= Counter:
               break
               time.sleep(100)
 
-      name.goto(0, start1)
+      name.goto(-150, start1)
       start1 = start1 + 50
+
+  measure = turtle.Turtle()
+  measure.penup()
+  
 
   turtle.done()
 
