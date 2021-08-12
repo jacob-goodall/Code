@@ -16,4 +16,4 @@ orders = 0
 
 test = list(chain.from_iterable(zip(first, second, third)))
 chunks = [test[x:x+3] for x in range(0, len(test), 3)]
-print(chunks[2][3])
+print(chunks[2][2])
