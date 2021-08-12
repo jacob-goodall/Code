@@ -46,3 +46,6 @@ war_2 = listing[boer + ww1 :]
 sorted_war_boer = sorted(war_boer)
 sorted_war_1 = sorted(war_1)
 sorted_war_2 = sorted(war_2)
+
+combinded_war = sorted_war_boer + sorted_war_1 + sorted_war_2
+print(combinded_war)

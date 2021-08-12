@@ -1,5 +1,7 @@
 from easygui import *
 import sys, turtle, time
+from itertools import chain
+
 
 def first():
   def opening():
@@ -54,6 +56,9 @@ def first():
     sorted_war_boer = sorted(war_boer)
     sorted_war_1 = sorted(war_1)
     sorted_war_2 = sorted(war_2)
+    global combinded_war
+    combinded_war = sorted_war_boer + sorted_war_1 + sorted_war_2
+    
 
     f.close()
     file = open(filepath,"r")
@@ -67,7 +72,7 @@ def first():
             Counter += 1
 
     print("Number of People in List:",Counter)
-    print(sorted_new_list)
+    
     second(sorted_new_list, Counter)
   opening()
 
@@ -129,7 +134,7 @@ def turtles(sorted_new_list, width, height, amount_of_people, Counter):
       for x in range(8):
           name.penup()
           name.forward(150)
-          name.write(sorted_new_list[order])
+          name.write(combinded_war[order])
           order += 1
           if order >= Counter:
               break
