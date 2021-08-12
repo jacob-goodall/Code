@@ -3,6 +3,7 @@ import sys, turtle, time
 from itertools import chain
 
 
+
 def first():
   def opening():
     filepath  = fileopenbox(title="Select File", multiple=False, filetypes="*.txt")
@@ -16,12 +17,12 @@ def first():
         lines = a.readlines()
     new_list = [s.replace("\n", "") for s in lines]
     sorted_new_list = sorted(new_list)
-    first = [i.split(" ")[0] for i in sorted_new_list]
-    second = [i.split(" ")[1] for i in sorted_new_list]
-    third = [i.split(" ")[2] for i in sorted_new_list]
+    first1 = [i.split(" ")[0] for i in sorted_new_list]
+    second2 = [i.split(" ")[1] for i in sorted_new_list]
+    third3 = [i.split(" ")[2] for i in sorted_new_list]
 
 
-    test = list(chain.from_iterable(zip(first, second, third)))
+    test = list(chain.from_iterable(zip(first1, second2, third3)))
     chunks = [test[x : x + 3] for x in range(0, len(test), 3)]
 
 
@@ -40,12 +41,12 @@ def first():
     listing = list(map(" ".join, chunks))
 
 
-    for x in listing:
-        if "BOER" in x:
+    for x1 in listing:
+        if "BOER" in x1:
             boer += 1
-        if "WWI" and not "WWII" in x:
+        if "WWI" and not "WWII" in x1:
             ww1 += 1
-        if "WWII" in x:
+        if "WWII" in x1:
             ww2 += 1
     ww1 = ww2 - ww1
     war_boer = listing[:boer]
@@ -56,7 +57,7 @@ def first():
     sorted_war_boer = sorted(war_boer)
     sorted_war_1 = sorted(war_1)
     sorted_war_2 = sorted(war_2)
-    global combinded_war
+    
     combinded_war = sorted_war_boer + sorted_war_1 + sorted_war_2
     
 
@@ -73,10 +74,10 @@ def first():
 
     print("Number of People in List:",Counter)
     
-    second(sorted_new_list, Counter)
+    second(combinded_war, Counter)
   opening()
 
-def second(sorted_new_list, Counter):
+def second(combinded_war, Counter):
   msg = "Enter Info about task"
   title = "Cross Plotter"
   fieldNames = ["Width Of Area", "Length of Area", "Amount of people to plot"]
@@ -96,9 +97,9 @@ def second(sorted_new_list, Counter):
       if fieldValues is None:
           break
   print(fieldValues)
-  turtles(sorted_new_list, fieldValues[0], fieldValues[1], fieldValues[2], Counter)
+  turtles(combinded_war, fieldValues[0], fieldValues[1], fieldValues[2], Counter)
 
-def turtles(sorted_new_list, width, height, amount_of_people, Counter):
+def turtles(combinded_war, width, height, amount_of_people, Counter):
   width = int(width)
   height = int(height)
   WIDTH, HEIGHT = 1400, 520
@@ -148,11 +149,6 @@ def turtles(sorted_new_list, width, height, amount_of_people, Counter):
   
 
   turtle.done()
-
-
-
-
-
 
 
 first()
