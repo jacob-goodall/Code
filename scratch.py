@@ -21,11 +21,20 @@ def Sort(chunks):
 
 print(Sort(chunks))
 order = 0
+boer = 0 
+ww1 = 0 
+ww2 = 0
 
+listing = list(map(' '.join, chunks))
+print(listing)
 
+for x in listing:
+    if "BOER" in x:
+        boer += 1      
+    if "WWI" in x:
+        ww1 += 1 
+    if "WWII" in x:
+        ww2 += 1
 
-#for x in range(5):
-   # war = ' '.join(chunks[order])
-    #order += 1
-
-#print(war)
+war_boer = listing 
+        
