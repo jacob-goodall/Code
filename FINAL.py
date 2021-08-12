@@ -107,7 +107,8 @@ def turtles(combinded_war, width, height, amount_of_people, Counter):
   screen = turtle.Screen()
   screen.setup(WIDTH, HEIGHT)
   screen.setworldcoordinates(0, 0, WIDTH, HEIGHT)
-  turtle.tracer(0)
+  #turtle.tracer(0)
+  turtle.speed(0)
   flag = turtle.Turtle()
 
   start = 100
@@ -143,6 +144,16 @@ def turtles(combinded_war, width, height, amount_of_people, Counter):
 
       name.goto(-150, start1)
       start1 = start1 + 50
+
+  box = turtle.Turtle()
+  box.penup()
+  box.goto(0,0)
+  box.pendown()
+  box.forward(150 * 8)
+  box.left(90)
+  box.forward(175)
+  box.left(90)
+  box.forward(150 * 8)
 
   measure = turtle.Turtle()
   measure.penup()
