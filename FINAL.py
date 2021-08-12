@@ -61,7 +61,7 @@ def turtles(sorted_new_list, width, height, amount_of_people, Counter):
   screen = turtle.Screen()
   screen.setup(WIDTH, HEIGHT)
   screen.setworldcoordinates(0, 0, WIDTH, HEIGHT)
-  #turtle.tracer(0)
+  turtle.tracer(0)
   flag = turtle.Turtle()
 
   start = 100

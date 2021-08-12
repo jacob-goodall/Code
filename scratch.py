@@ -1,8 +1,8 @@
-def first():
-    lists = [1, 2, 3, 4]
-    second(lists[2])
+with open("Level3crosses.txt") as a:
+    lines = a.readlines()
+new_list = [s.replace("\n", "") for s in lines]
+sorted_new_list = sorted(new_list)
+print(sorted_new_list)
 
-def second(testing):
-    print(testing)
-
-first()
+chunks = [sorted_new_list[x:x+3] for x in range(0, len(sorted_new_list), 3)]
+print(chunks)
