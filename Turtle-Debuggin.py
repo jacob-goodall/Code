@@ -1,50 +1,63 @@
-import turtle, time
-with open('Level3crosses.txt') as a:
-        lines = a.readlines()
-new_list = [s.replace("\n", "") for s in lines]
-sorted_new_list = sorted(new_list)
+import time, turtle
 
-WIDTH, HEIGHT = 800, 800
+
+WIDTH, HEIGHT = 1400, 520
 screen = turtle.Turtle()
 screen = turtle.Screen()
 screen.setup(WIDTH, HEIGHT)
 screen.setworldcoordinates(0, 0, WIDTH, HEIGHT)
-turtle.tracer(0)
+
+turtle.speed(0)
 flag = turtle.Turtle()
 
-start = 100
+start = 0
 flag.penup()
 flag.goto(0, 50)
-for i in range(3):
-    for i in range(8):
-        flag.penup()
-        flag.forward(150)  
-        flag.dot()
-        flag.penup()
+flag.backward(150)
+for i in range(4):
+    for i in range(6):
+            flag.penup()
+            flag.forward(150)
+            flag.dot()
+            flag.penup()
+    start += 150
+    flag.goto(-150, start)
+    
+turtle.tracer(0)
 
-    flag.goto(0, start)
-    start = start + 50
-
-start1 = 100
+start1 = 0
 order = 0
 name = turtle.Turtle()
 name.penup()
 name.goto(0, 50)
+name.backward(150)
 
-for x in range(3):
-    for x in range(8):
+for x in range(4):
+    for x in range(6):
         name.penup()
         name.forward(150)
-        print(x)
-        x =+ 1 
-        name.write(sorted_new_list[order])
+        name.write("x")
         order += 1
-        print("Order:", order)
-        if order >= 17:
+        if order >= Counter:
             break
             time.sleep(100)
+    start1 += 150
+    print(start1)
+    name.goto(-150, start1)
+    
 
-    name.goto(0, start1)
-    start1 = start1 + 50
+box = turtle.Turtle()
+box.penup()
+box.goto(0,0)
+box.pendown()
+box.forward(150 * 8)
+box.left(90)
+box.forward(175)
+box.left(90)
+box.forward(150 * 8)
+
+measure = turtle.Turtle()
+measure.penup()
+
 
 turtle.done()

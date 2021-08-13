@@ -2,7 +2,8 @@ from easygui import *
 import sys, turtle, time
 from itertools import chain
 
-
+def finals():
+    turtle.exitonclick()
 
 def first():
   def opening():
@@ -80,7 +81,8 @@ def first():
 def second(combinded_war, Counter):
   msg = "Enter Info about task"
   title = "Cross Plotter"
-  fieldNames = ["Width Of Area", "Length of Area", "Amount of people to plot"]
+  naming = 'Amount of people to plot Number must be under:', Counter
+  fieldNames = ["Width Of Area (m)", "Length of Area (m)", naming ]
   fieldValues = multenterbox(msg, title, fieldNames)
   if fieldValues is None:
       #need to make it restart
@@ -100,66 +102,78 @@ def second(combinded_war, Counter):
   turtles(combinded_war, fieldValues[0], fieldValues[1], fieldValues[2], Counter)
 
 def turtles(combinded_war, width, height, amount_of_people, Counter):
-  width = int(width)
-  height = int(height)
-  WIDTH, HEIGHT = 1400, 520
-  screen = turtle.Turtle()
-  screen = turtle.Screen()
-  screen.setup(WIDTH, HEIGHT)
-  screen.setworldcoordinates(0, 0, WIDTH, HEIGHT)
-  #turtle.tracer(0)
-  turtle.speed(0)
-  flag = turtle.Turtle()
+    length = int(width)
+    height = int(height)
+    amount_of_people = int(amount_of_people)
+    if amount_of_people > Counter:
+        print("error")
+        second(combinded_war, Counter)
+    x = int(length * 2)
+    y = int(height * 2)
+    print(x)
+    print(y) 
+    total_amount_able_to_fit = length * height 
+    total_amount_able_to_fit = int(total_amount_able_to_fit)
+    print(total_amount_able_to_fit)
+    if total_amount_able_to_fit >= amount_of_people:
+        print("Error Too little space")
+        second(combinded_war, Counter)
 
-  start = 100
-  flag.penup()
-  flag.goto(0, 50)
-  flag.backward(150)
-  for i in range(3):
-      for i in range(8):
-          flag.penup()
-          flag.forward(150)
-          flag.dot()
-          flag.penup()
+    WIDTH, HEIGHT = 1400, 520
+    screen = turtle.Turtle()
+    screen = turtle.Screen()
+    screen.setup(WIDTH, HEIGHT)
+    screen.setworldcoordinates(0, 0, WIDTH, HEIGHT)
+    def flag(combinded_war, width, height, amount_of_people, Counter, x, y):
+        turtle.speed(0)
+        flag = turtle.Turtle()
+        
+    
+    
+    
+        start = 0
+        flag.penup()
+        flag.goto(0, 50)
+        flag.backward(150)
+        order1 = 0
+        for i in range(x):
+            for i in range(y):
+                    flag.penup()
+                    flag.forward(150)
+                    flag.dot()
+                    flag.penup()
+                    order1 += 1 
+                    if order1 >= amount_of_people:
+                        name(combinded_war, width, height, amount_of_people, Counter, x, y)
+            start += 150
+            flag.goto(-150, start)
+    def name(combinded_war, width, height, amount_of_people, Counter, x, y):
+        turtle.tracer(0)
 
-      flag.goto(-150, start)
-      start = start + 50
+        start1 = 0
+        order = 0
+        name = turtle.Turtle()
+        name.penup()
+        name.goto(0, 50)
+        name.backward(150)
 
-  start1 = 100
-  order = 0
-  name = turtle.Turtle()
-  name.penup()
-  name.goto(0, 50)
-  name.backward(150)
+        for x in range(x):
+            for x in range(y):
+                name.penup()
+                name.forward(150)
+                name.write(combinded_war[order])
+                order += 1
+                if order >= amount_of_people:
+                    finals()
+                    
+            start1 += 150
+            print(start1)
+            name.goto(-150, start1)
+    flag(combinded_war, width, height, amount_of_people, Counter,x ,y)     
 
-  for x in range(3):
-      for x in range(8):
-          name.penup()
-          name.forward(150)
-          name.write(combinded_war[order])
-          order += 1
-          if order >= Counter:
-              break
-              time.sleep(100)
+    
 
-      name.goto(-150, start1)
-      start1 = start1 + 50
 
-  box = turtle.Turtle()
-  box.penup()
-  box.goto(0,0)
-  box.pendown()
-  box.forward(150 * 8)
-  box.left(90)
-  box.forward(175)
-  box.left(90)
-  box.forward(150 * 8)
-
-  measure = turtle.Turtle()
-  measure.penup()
-  
-
-  turtle.done()
-
+   
 
 first()
