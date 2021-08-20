@@ -3,7 +3,7 @@
 
 # Importing Files
 from easygui import *
-import sys, turtle, time
+import sys, turtle
 from itertools import chain
 
 # First Run Function
@@ -131,7 +131,7 @@ def turtles(combinded_war, width, height, amount_of_people, Counter):
     # Making an INT
     total_amount_able_to_fit = int(total_amount_able_to_fit)
     # Erroring if allocated space isn't enough space for amount of names wanted to plot
-    if total_amount_able_to_fit >= amount_of_people:
+    if total_amount_able_to_fit <= amount_of_people:
         print("Error Too little space")
         # resetting
         second(combinded_war, Counter)
